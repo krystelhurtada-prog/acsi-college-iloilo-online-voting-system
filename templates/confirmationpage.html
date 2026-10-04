@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vote Submitted</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .header {
+            background: #b30000;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .header h1 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .success {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .success h2 {
+            color: #b30000;
+            margin-bottom: 10px;
+        }
+
+        .voter-info {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .voter-info p {
+            margin: 7px 0;
+            color: #111;
+        }
+
+        .votes {
+            border-top: 2px solid #b30000;
+            padding-top: 15px;
+        }
+
+        .votes h3 {
+            margin-bottom: 15px;
+            color: #111;
+        }
+
+        .vote-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: white;
+        }
+
+        .vote-item strong {
+            color: #b30000;
+        }
+
+        .home-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            background: #111;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .home-btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>ACSI COLLEGE ILOILO</h1>
+        <p>ONLINE VOTING SYSTEM</p>
+    </div>
+
+    <div class="content">
+
+        <div class="success">
+            <h2>Vote Successfully Submitted!</h2>
+            <p>Your vote has been recorded.</p>
+        </div>
+
+        <div class="voter-info">
+            <p><strong>Student Name:</strong> {{ student_name }}</p>
+            <p><strong>Student ID:</strong> {{ student_id }}</p>
+            <p><strong>Course:</strong> {{ course }}</p>
+        </div>
+
+        <div class="votes">
+
+            <h3>Your Selected Candidates</h3>
+
+            <div class="vote-item">
+                <strong>President:</strong> {{ president }}
+            </div>
+
+            <div class="vote-item">
+                <strong>Vice President:</strong> {{ vice_president }}
+            </div>
+
+            <div class="vote-item">
+                <strong>Secretary:</strong> {{ secretary }}
+            </div>
+
+            <div class="vote-item">
+                <strong>Treasurer:</strong> {{ treasurer }}
+            </div>
+
+            <div class="vote-item">
+                <strong>Auditor:</strong> {{ auditor }}
+            </div>
+
+            <div class="vote-item">
+                <strong>Public Information Officer:</strong>
+                {{ public_information_officer }}
+            </div>
+
+            {% if bscs_representative %}
+            <div class="vote-item">
+                <strong>BSCS Representative:</strong>
+                {{ bscs_representative }}
+            </div>
+            {% endif %}
+
+            {% if bsis_representative %}
+            <div class="vote-item">
+                <strong>BSIS Representative:</strong>
+                {{ bsis_representative }}
+            </div>
+            {% endif %}
+
+            {% if act_representative %}
+            <div class="vote-item">
+                <strong>ACT Representative:</strong>
+                {{ act_representative }}
+            </div>
+            {% endif %}
+
+            {% if shs_representative %}
+            <div class="vote-item">
+                <strong>SHS Representative:</strong>
+                {{ shs_representative }}
+            </div>
+            {% endif %}
+
+        </div>
+
+        <a href="/" class="home-btn">
+            BACK TO HOME
+        </a>
+
+        
+
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

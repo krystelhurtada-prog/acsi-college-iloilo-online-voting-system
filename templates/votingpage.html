@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Student Council Election</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        color: #111;
+    }
+
+    .header {
+        background: #b30000;
+        color: white;
+        padding: 25px 20px;
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .header p {
+        font-size: 15px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 800px;
+        margin: 30px auto;
+    }
+
+    .student-info {
+        background: #111;
+        color: white;
+        padding: 18px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+    }
+
+    .student-info p {
+        margin: 6px 0;
+    }
+
+    .position {
+        background: white;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 6px solid #b30000;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .position h2 {
+        margin-bottom: 15px;
+        color: #b30000;
+        font-size: 21px;
+    }
+
+    .candidate {
+        display: block;
+        background: #f1f1f1;
+        padding: 12px;
+        margin: 8px 0;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .candidate:hover {
+        background: #ddd;
+    }
+
+    .candidate input {
+        margin-right: 10px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: #b30000;
+        color: white;
+        border: none;
+        border-radius: 7px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 30px;
+    }
+
+    .submit-btn:hover {
+        background: #8f0000;
+    }
+</style>
+
+</head><body><div class="header">
+    <h1>ACSI COLLEGE ILOILO</h1>
+    <p>ONLINE VOTING SYSTEM</p>
+</div>
+
+<div class="container">
+
+    <div class="student-info">
+        <p><strong>Student Name:</strong> {{ student_name }}</p>
+        <p><strong>Student ID:</strong> {{ student_id }}</p>
+        <p><strong>Course:</strong> {{ course }}</p>
+    </div>
+
+    <form action="/submit_vote" method="POST">
+
+        <input type="hidden" name="student_id" value="{{ student_id }}">
+
+        <!-- PRESIDENT -->
+        <div class="position">
+            <h2>President</h2>
+
+            <label class="candidate">
+                <input type="radio" name="president"
+                       value="Dave Micheal Sarandi" required>
+                Dave Micheal Sarandi
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="president"
+                       value="Krystal Kaye Hurtada" required>
+                Krystal Kaye Hurtada
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="president"
+                       value="Mary Joy Huesca" required>
+                Mary Joy Huesca
+            </label>
+        </div>
+
+        <!-- VICE PRESIDENT -->
+        <div class="position">
+            <h2>Vice President</h2>
+
+            <label class="candidate">
+                <input type="radio" name="vice_president"
+                       value="Jaryd Poral" required>
+                Jaryd Poral
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="vice_president"
+                       value="Ceddie De Guzman" required>
+                Ceddie De Guzman
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="vice_president"
+                       value="Carl Bryan Rico" required>
+                Carl Bryan Rico
+            </label>
+        </div>
+
+        <!-- SECRETARY -->
+        <div class="position">
+            <h2>Secretary</h2>
+
+            <label class="candidate">
+                <input type="radio" name="secretary"
+                       value="Aurose Tormon" required>
+                Aurose Tormon
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="secretary"
+                       value="Joban De Villa" required>
+                Joban De Villa
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="secretary"
+                       value="Prince Alvior" required>
+                Prince Alvior
+            </label>
+        </div>
+
+        <!-- TREASURER -->
+        <div class="position">
+            <h2>Treasurer</h2>
+
+            <label class="candidate">
+                <input type="radio" name="treasurer"
+                       value="Troy Miguel Aganan" required>
+                Troy Miguel Aganan
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="treasurer"
+                       value="Ronelyn Eula" required>
+                Ronelyn Eula
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="treasurer"
+                       value="Mary Grace Catoray" required>
+                Mary Grace Catoray
+            </label>
+        </div>
+
+        <!-- AUDITOR -->
+        <div class="position">
+            <h2>Auditor</h2>
+
+            <label class="candidate">
+                <input type="radio" name="auditor"
+                       value="Mary Rose Lajum" required>
+                Mary Rose Lajum
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="auditor"
+                       value="Kennen Sebandra" required>
+                Kennen Sebandra
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="auditor"
+                       value="Nica Ferrer" required>
+                Nica Ferrer
+            </label>
+        </div>
+
+        <!-- PIO -->
+        <div class="position">
+            <h2>Public Information Officer</h2>
+
+            <label class="candidate">
+                <input type="radio" name="public_information_officer"
+                       value="Jharette Esmeralda" required>
+                Jharette Esmeralda
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="public_information_officer"
+                       value="Joshua Olayon" required>
+                Joshua Olayon
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="public_information_officer"
+                       value="Mary Rose Huesca" required>
+                Mary Rose Huesca
+            </label>
+        </div>
+
+
+        <!-- BSCS REPRESENTATIVE -->
+        {% if course|upper == 'BSCS' %}
+        <div class="position">
+            <h2>BSCS Representative</h2>
+
+            <label class="candidate">
+                <input type="radio" name="bscs_representative"
+                       value="Ivan Daulo" required>
+                Ivan Daulo
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="bscs_representative"
+                       value="Espino Sheina" required>
+                Espino Sheina
+            </label>
+        </div>
+        {% endif %}
+
+
+        <!-- BSIS REPRESENTATIVE -->
+        {% if course|upper == 'BSIS' %}
+        <div class="position">
+            <h2>BSIS Representative</h2>
+
+            <label class="candidate">
+                <input type="radio" name="bsis_representative"
+                       value="Danica Depasupil" required>
+                Danica Depasupil
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="bsis_representative"
+                       value="Abbie Buenaflor" required>
+                Abbie Buenaflor
+            </label>
+        </div>
+        {% endif %}
+
+
+        <!-- ACT REPRESENTATIVE -->
+        {% if course|upper == 'ACT' %}
+        <div class="position">
+            <h2>ACT Representative</h2>
+
+            <label class="candidate">
+                <input type="radio" name="act_representative"
+                       value="Marious Tingson" required>
+                Marious Tingson
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="act_representative"
+                       value="John Gallego" required>
+                John Gallego
+            </label>
+        </div>
+        {% endif %}
+
+
+        <!-- SHS REPRESENTATIVE -->
+        {% if course|upper == 'SHS' %}
+        <div class="position">
+            <h2>SHS Representative</h2>
+
+            <label class="candidate">
+                <input type="radio" name="shs_representative"
+                       value="Trisha Mae Balgos" required>
+                Trisha Mae Balgos
+            </label>
+
+            <label class="candidate">
+                <input type="radio" name="shs_representative"
+                       value="Jp Delfin" required>
+                Jp Delfin
+            </label>
+        </div>
+        {% endif %}
+
+
+        <button type="submit" class="submit-btn">
+            SUBMIT VOTE
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
